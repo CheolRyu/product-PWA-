@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import axios from 'axios';
 import ProductDetail from './ProductDetail';
 
@@ -17,6 +17,6 @@ export default class ProductList extends Component {
   }
 
   render() {
-    return <View>{this.renderProducts()}</View>;
+    return <ScrollView>{this.renderProducts()}</ScrollView>;
   }
 }
