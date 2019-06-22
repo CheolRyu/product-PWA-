@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import axios from 'axios';
+import ProductDetail from './ProductDetail';
 
 export default class ProductList extends Component {
+  state = { products: [] };
+  componentWillMount() {
+    axios
+      .get('https://rallycoding.herokuapp.com/api/music_albums')
+      .then(res => this.setState({ products: res.data }));
+  }
+  renderProducts() {
+    return this.state.products.map(product => (
+      <ProductDetail key={product.title} product={product} />
+    ));
+  }
+
   render() {
-    return (
-      <View>
-        <Text> Product List </Text>
-      </View>
-    );
+    return <View>{this.renderProducts()}</View>;
   }
 }
-
-const styles = StyleSheet.create({});

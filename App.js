@@ -7,7 +7,7 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <Header headerText={'Products'} />
+        <Header headerText={'PRODUCTS'} />
         <ProductList />
       </View>
     );
